@@ -21,4 +21,17 @@ def mystere(tab, n):
     
     return i
 
+def int_input(message):
+    while True:
+        try:
+            x = int(input(message))       
+        except ValueError:
+            print("Ce n'est pas un entier ! Merci de réessayer")
+            continue
+        else:
+            return x
 
+loop=True
+
+while loop:
+    print("cc")

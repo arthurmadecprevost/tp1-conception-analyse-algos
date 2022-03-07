@@ -1,4 +1,5 @@
 import random
+import time
 
 #Question 1
 def generateBooleanTab(n):
@@ -30,7 +31,6 @@ def int_input(message):
             continue
         else:
             return x
-
 loop=True
 
 while loop:

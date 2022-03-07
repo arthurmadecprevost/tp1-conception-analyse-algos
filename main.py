@@ -7,6 +7,12 @@ def generateBooleanTab(n):
         tab.append(random.choice[True, False])
     return tab
 
+def generateBooleanTabs(nbTab, n):
+    tab = []
+    for i in range(nbTab):
+        tab.append(generateBooleanTab(n))
+    return tab
+
 #Question 2
 def mystere(tab, n):
     i = 1

@@ -21,9 +21,8 @@ def generateBooleanTabs(n):
 
 #Question 2
 def mystere(tab, n):
-    Event.wait(2)
     i = 1
-    while i  <= n and tab[i] != True:
+    while i < n and tab[i] != True:
         i += 1
     
     return i

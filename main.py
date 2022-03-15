@@ -1,6 +1,9 @@
 import random
 from time import *
-import threading
+import threading 
+from threading import Timer
+
+
 
 #Question 1
 def generateBooleanTab(n, i):
@@ -23,6 +26,7 @@ def generateBooleanTabs(n):
 def mystere(tab, n):
     i = 1
     while i < n and tab[i] != True:
+        sleep(1)
         i += 1
     
     return i
@@ -39,23 +43,41 @@ def int_input(message):
 
 
 n = int_input("Entrez le nombre d'element dans le tableau : ")
-boolTabs = generateBooleanTabs(n)
-mini = 180
-maxi = -1
-i = 0
-somme = 0
-event = threading.Event()
-for tab in boolTabs:
-    i+=1
-    t0 = process_time()
-    mystere(tab, n)
-    t1 = process_time()
-    time = t1-t0
-    somme += time
-    if(time < mini):
-        mini = time
-    if( time > maxi):
-        maxi = time
-moy = somme/i
+# boolTabs = generateBooleanTabs(n)
+#     mini = 180
+#     maxi = -1
+#     i = 0
+#     somme = 0
+#     event = threading.Event()
+#     for tab in boolTabs:
+#         i+=1
+#         t0 = time()
+#         mystere(tab, n)
+#         t1 = time()
+#         timeT = t1-t0
+#         somme += timeT
+#         if(timeT < mini):
+#             mini = timeT
+#         if( timeT > maxi):
+#             maxi = timeT
+#     moy = somme/i
 
-print(moy, mini, maxi)
+#     print(moy, mini, maxi)
+
+l=1
+somme=0
+while(somme<180 and l != n):
+    boolTabs = generateBooleanTabs(n)
+    i = 0
+    event = threading.Event()
+    for tab in boolTabs:
+        i+=1
+        t0 = time()
+        mystere(tab, n)
+        t1 = time()
+        timeT = t1-t0
+        somme += timeT
+    print(somme, l)
+    l=l+1
+
+   

@@ -3,16 +3,20 @@ from time import *
 import threading
 
 #Question 1
-def generateBooleanTab(n):
+def generateBooleanTab(n, i):
     tab = []
-    for i in range(n):
-        tab.append(random.choice([True, False]))
+    for j in range(n):
+        if j == i:
+            tab.append(True)
+        else :
+            tab.append(False)
     return tab
 
-def generateBooleanTabs(nbTab, n):
+def generateBooleanTabs(n):
     tab = []
-    for i in range(nbTab):
-        tab.append(generateBooleanTab(n))
+    for i in range(n):
+        tab.append(generateBooleanTab(n, i))
+    tab.append(generateBooleanTab(n, -1))
     return tab
 
 #Question 2
@@ -29,14 +33,14 @@ def int_input(message):
         try:
             x = int(input(message))       
         except ValueError:
-            print("Ce n'est pas un entier ! Merci de réessayer")
+            print("Ce n'est pas un entier ! Merci de reessayer")
             continue
         else:
             return x
 
-nbTab = int_input("Entrez le nombre de tableau souhaité : ")
-n = int_input("Entrez le nombre d'élément dans le tableau : ")
-boolTabs = generateBooleanTabs(nbTab, n)
+
+n = int_input("Entrez le nombre d'element dans le tableau : ")
+boolTabs = generateBooleanTabs(n)
 mini = 180
 maxi = -1
 i = 0

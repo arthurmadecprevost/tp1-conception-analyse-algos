@@ -24,9 +24,10 @@ def generateBooleanTabs(n):
 
 #Question 2
 def mystere(tab, n):
-    i = 1
+    i = 0
     while i < n and tab[i] != True:
         sleep(1)
+
         i += 1
     
     return i
@@ -64,20 +65,31 @@ n = int_input("Entrez le nombre d'element dans le tableau : ")
 
 #     print(moy, mini, maxi)
 
+
+demo_file = open('test.txt','w')
 l=1
-somme=0
+somme = 0
 while(somme<180 and l != n):
-    boolTabs = generateBooleanTabs(n)
+    boolTabs = generateBooleanTabs(l)
+    print(somme)
     i = 0
+    j = 0
+    somme = 0 
     event = threading.Event()
-    for tab in boolTabs:
+    while(somme<180 and j!= l):
+        tab = boolTabs[j]
         i+=1
         t0 = time()
-        mystere(tab, n)
+        print("l= ",l," tab= ",tab)
+        mystere(tab, l)
         t1 = time()
         timeT = t1-t0
+        string = "l = "+str(l)+ " time = "+str(timeT)+"\n"
+        demo_file.write(string)
         somme += timeT
-    print(somme, l)
+        j+=1
     l=l+1
+print(somme)
 
+demo_file.close()
    

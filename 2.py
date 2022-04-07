@@ -67,7 +67,9 @@ def MaxSomme2(tab, debut, fin):
     return max3(mg + md, MaxSomme2(tab, debut, milieu), MaxSomme2(tab, milieu + 1, fin))
 
 def maxSomme3(tab, n):
-    p,q,i = 0
+    p = 0
+    q = 0
+    i = 0
 
     while i<n:
         q = max(q+tab[i],0)
@@ -84,7 +86,7 @@ def max3(a,b,c):
 
 n = [1000, 10000, 100000]
 l = [50, 500, 5000]
-demo_file = open('testSomme2.txt','w')
+demo_file = open('testSomme3.txt','w')
 somme = 0 
 i=0
 event = threading.Event()
@@ -99,8 +101,8 @@ while i < len(n) and somme<180 :
         while j < len(tabs) and somme<180:
             t0 = time()
             #MaxSomme1(tabs[j])
-            MaxSomme2(tabs[j], 0, len(tabs[j])-1)
-            #maxSomme3(tabs[j], k)
+            #MaxSomme2(tabs[j], 0, len(tabs[j])-1)
+            maxSomme3(tabs[j], k)
             t1 = time()
             timeT = t1-t0
             somme = somme + timeT

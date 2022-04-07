@@ -34,7 +34,10 @@ def MaxSomme1(tab):
     return sommeMax
 
 def MaxSomme2(tab, debut, fin):
-    i, somme, mg, md = 0
+    i = 0
+    somme = 0
+    mg = 0
+    md = 0
     
     if debut == fin:
         return max(0, tab[fin])
@@ -81,7 +84,7 @@ def max3(a,b,c):
 
 n = [1000, 10000, 100000]
 l = [50, 500, 5000]
-demo_file = open('testSomme.txt','w')
+demo_file = open('testSomme2.txt','w')
 somme = 0 
 i=0
 event = threading.Event()
@@ -95,7 +98,9 @@ while i < len(n) and somme<180 :
         j = 0
         while j < len(tabs) and somme<180:
             t0 = time()
-            MaxSomme1(tabs[j])
+            #MaxSomme1(tabs[j])
+            MaxSomme2(tabs[j], 0, len(tabs[j])-1)
+            #maxSomme3(tabs[j], k)
             t1 = time()
             timeT = t1-t0
             somme = somme + timeT
@@ -103,6 +108,6 @@ while i < len(n) and somme<180 :
             demo_file.write(string)
             j = j + 1
         k = k + incr
-        print(somme)
+        print(k, somme)
     i = i+1
 demo_file.close()
